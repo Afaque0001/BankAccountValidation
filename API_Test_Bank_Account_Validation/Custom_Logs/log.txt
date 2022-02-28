@@ -1,0 +1,262 @@
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:11 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	 
+NAME:	,	VALUE:	{ bankAccount = GB09HAOE91311808002317 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:13 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = GB09HAOE91311808002317 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:14 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  "isValid": true
+}
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:14 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	5343543534
+NAME:	,	VALUE:	{ bankAccount = GB09HAOE91311808002317 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:15 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	5343543534
+NAME:	,	VALUE:	{ bankAccount = GB09HAOE91311808002317 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:15 PM
+RESPONSE CODE:	 Unauthorized
+RESPONSE BODY:	 { 
+    "message": "Authorization has been denied for this request." 
+}
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:15 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = INVALID-GB09HAOE91311808002317 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:16 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = INVALID-GB09HAOE91311808002317 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:17 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  "isValid": false,
+  "riskCheckMessages": [
+    {
+      "type": "BusinessError",
+      "code": "200.908",
+      "message": "Value format is incorrect.",
+      "customerFacingMessage": "Die eingegebenen Bankdaten sind ungültig, bitte überprüfen und korrigieren.",
+      "actionCode": "AskConsumerToReEnterData",
+      "fieldReference": "bankAccount"
+    }
+  ]
+}
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:17 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount =   }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:17 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount =   }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:18 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    "type": "BusinessError",
+    "code": "400.002",
+    "message": "Value is required.",
+    "customerFacingMessage": "Value is required.",
+    "actionCode": "AskConsumerToReEnterData",
+    "fieldReference": "bankAccount"
+  }
+]
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:18 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = 702740374702740374702740374702740374 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:19 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = 702740374702740374702740374702740374 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:19 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    "type": "BusinessError",
+    "code": "400.005",
+    "message": "A string value exceeds maximum length of 34.",
+    "customerFacingMessage": "A string value exceeds maximum length of 34.",
+    "actionCode": "AskConsumerToReEnterData",
+    "fieldReference": "bankAccount"
+  }
+]
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:19 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = 2121 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:20 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = 2121 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:21 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    "type": "BusinessError",
+    "code": "400.006",
+    "message": "A string value with minimum length 7 is required.",
+    "customerFacingMessage": "A string value with minimum length 7 is required.",
+    "actionCode": "AskConsumerToReEnterData",
+    "fieldReference": "bankAccount"
+  }
+]
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:21 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = SE4550000000058398257466 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:22 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = SE4550000000058398257466 }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:22 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  "isValid": true
+}
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:22 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  "isValid": true
+}
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:22 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = DK5000400440116243 }
+
+
+**********API REQUEST DETAILS**********
+Date & Time:	28-Feb-22 4:30:23 PM
+REQUEST METHOD:	Post
+REQUEST URL:		https://api-test.afterpay.dev/api/v3/validate/bank-account
+REQUEST HEADERS:
+NAME:	Content-Type,	VALUE:	application/json
+NAME:	X-Auth-Key,	VALUE:	Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L
+NAME:	,	VALUE:	{ bankAccount = IBAN }
+
+
+**********API RESPONSE DETAILS**********
+Date & Time:	28-Feb-22 4:30:24 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    "type": "BusinessError",
+    "code": "400.006",
+    "message": "A string value with minimum length 7 is required.",
+    "customerFacingMessage": "A string value with minimum length 7 is required.",
+    "actionCode": "AskConsumerToReEnterData",
+    "fieldReference": "bankAccount"
+  }
+]

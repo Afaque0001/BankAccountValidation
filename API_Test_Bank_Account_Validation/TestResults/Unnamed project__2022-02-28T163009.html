@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Unnamed project Test Execution Report</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript">
+            /**
+            * jQuery.fn.sortElements
+            * --------------
+            * #author James Padolsey (http://james.padolsey.com)
+            * #version 0.11
+            * #updated 18-MAR-2010
+            * #url https://raw.github.com/jamespadolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js
+            * --------------
+            * #param Function comparator:
+            *   Exactly the same behaviour as [1,2,3].sort(comparator)
+            *   
+            * #param Function getSortable
+            *   A function that should return the element that is
+            *   to be sorted. The comparator will run on the
+            *   current collection, but you may want the actual
+            *   resulting sort to occur on a parent or another
+            *   associated element.
+            *   
+            *   E.g. $('td').sortElements(comparator, function(){
+            *      return this.parentNode; 
+            *   })
+            *   
+            *   The <td>'s parent (<tr>) will be sorted instead
+            *   of the <td> itself.
+            */
+            jQuery.fn.sortElements = (function () {
+
+                var sort = [].sort;
+
+                return function (comparator, getSortable) {
+
+                    getSortable = getSortable || function () { return this; };
+
+                    var placements = this.map(function () {
+
+                        var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+
+                        // Since the element itself will change position, we have
+                        // to have some way of storing it's original position in
+                        // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+
+                        return function () {
+
+                            if (parentNode === this) {
+                                throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                            }
+
+                            // Insert before flag:
+                            parentNode.insertBefore(this, nextSibling);
+                            // Remove flag:
+                            parentNode.removeChild(nextSibling);
+
+                        };
+
+                    });
+
+                    return sort.call(this, comparator).each(function (i) {
+                        placements[i].call(getSortable.call(this));
+                    });
+
+                };
+
+            })();
+        </script>
+        <script type="text/javascript">
+            jQuery.fn.setBarSizes = (function () {
+                return function (metricName, maxBarSize, min) {
+                    var max = Math.max.apply(Math, $.makeArray($(this).map(function () { return Number($(this).attr('data-sr-' + metricName)); })));
+                    var scale = 1.0;
+                    while (max > 0.0 && max <= 10.0) {
+                        scale = scale * 10.0;
+                        max = max * 10.0;
+                    }
+                    max = (Math.ceil(max / 2) * 2) / scale;
+
+                    this.each(function () {
+                        var barAnchor = $(this).find('a');
+                        var actual = $(this).attr('data-sr-' + metricName);
+                        var newHeight = Math.max(Math.round(maxBarSize * (actual - min) / (max - min)), 2);
+                        barAnchor.css({ height: newHeight });
+                    });
+
+                    var unit = "";
+                    if (metricName.substr(metricName.length - 4, 4) === "time")
+                        unit = "s";
+
+                    $('#testview .scale-min-label').each(function () {
+                        $(this).text(min.toString() + unit);
+                    });
+                    $('#testview .scale-max-label').each(function () {
+                        $(this).text(max.toString() + unit);
+                    });
+                    var mid = max / 2;
+                    $('#testview .scale-mid-label').each(function () {
+                        $(this).text(mid.toString() + unit);
+                    });
+                };
+            })();
+
+            function getComparer(metricName, isDesc) {
+                return function (a, b) {
+                    var aNumber = Number($(a).attr('data-sr-' + metricName));
+                    var bNumber = Number($(b).attr('data-sr-' + metricName));
+                    var result = aNumber > bNumber ? 1 : (aNumber < bNumber ? -1 : 0);
+                    if (isDesc)
+                        result = -1 * result;
+
+                    if (result == 0 && metricName != "order")
+                        result = getComparer("order", false)(a, b);
+
+                    return result;
+                };
+            }
+
+            var currentSort = "";
+            function doSort(allowToggleDesc) {
+                var newSort = $("input[name='barSortOrder']:checked").val();
+                if (allowToggleDesc && currentSort == newSort) {
+                    $('#barSortDesc').click();
+                    doSort(false);
+                    return;
+                }
+                currentSort = newSort;
+                $('#testview td.testview-item').sortElements(getComparer(newSort, $('#barSortDesc').is(':checked')));
+            }
+
+
+            function doSetHeights(allowSort) {
+                var selectedMetric = $("input[name='barHeight']:checked").val();
+                $('#testview td.testview-item').setBarSizes(selectedMetric, 60, 0.0);
+
+                if (allowSort && currentSort != selectedMetric) {
+                    var $radios = $("input[name='barSortOrder']");
+                    $radios.filter('[value=' + selectedMetric + ']').attr('checked', true);
+                    $("#barSortDesc").attr("checked", [true]);
+                    doSort(false);
+                }
+            }
+
+            $(document).ready(function () {
+                $("input[name='barSortOrder']").click(function () { doSort(true); return true; });
+                $("input[name='barSortDesc']").change(function () { doSort(false); });
+                $("input[name='barHeight']").change(function () { doSetHeights(true); });
+
+                doSort(false);
+                doSetHeights(false);
+
+                $("div.scrollable").css({ 'overflow': 'auto' });
+            });
+        </script>
+
+        <style type="text/css">
+            body 
+            {
+                color: #000000;
+                font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+                line-height: 130%;
+            }
+            h1 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 170%;
+                font-weight: bold;
+            }            
+            h2 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 130%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            h3 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 120%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            a.bar
+            {
+                text-decoration: none;
+                display: block;
+                line-height: 1px;
+            }
+            .description
+            {
+                font-style: italic;
+            }
+            .log 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                display: block;
+                margin: 0px;
+            }
+            .errorMessage 
+            {
+                width: 600px;
+                color: Red;
+                font-weight: bold;
+            }
+            .stackTrace 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                font-style: italic;
+                color: Red;
+                display: block;
+            }
+            table.testEvents
+            {
+                border: solid 1px #e8eef4;
+                border-collapse: collapse;
+            }
+            table.testEvents td
+            {
+                vertical-align: top;
+                padding: 5px;
+                border: solid 1px #e8eef4;
+            }
+            table.testEvents th
+            {
+                padding: 6px 5px;
+                text-align: left;
+                background-color: #e8eef4;
+                border: solid 1px #e8eef4;                
+            }
+            .comment
+            {
+                font-style: italic;
+                font-size: smaller;
+            }
+            .startupBar
+            {
+                background-color: #EEEEEE;
+                cursor: default;
+            }
+            
+            .colorSucceeded
+            {
+                background-color: #90ED7B;
+            }
+            .colorIgnored
+            {
+                background-color: #FFFF85;
+            }
+            .colorPending
+            {
+                background-color: #D47BED;
+            }
+            .colorNothingToRun
+            {
+                background-color: #CCCCFF;
+            }
+            .colorSkipped
+            {
+                background-color: #CCCCFF;
+            }
+            .colorInconclusive
+            {
+                background-color: #7BEDED;
+            }
+            .colorCleanupFailed
+            {
+                background-color: #FFCCCC;
+            }
+            .colorRandomlyFailed
+            {
+                background-color: #EDB07B;
+            }
+            .colorFailed
+            {
+                background-color: #ED5F5F;
+            }
+            .colorInitializationFailed
+            {
+                background-color: #FF0000;
+            }
+            .colorFrameworkError
+            {
+                background-color: #FF0000;
+            }
+            ul.subNodeLinks
+            {
+                padding-left: 20px;
+                margin: 0px;
+            }
+            ul.subNodeLinks li
+            {
+                list-style: none;
+            }
+            
+            /* views general */
+            div.scrollable
+            {
+                /*overflow: auto; - thsi has to be set from js, because of an IE9 bug */
+            }
+            div.viewbox
+            {
+                position: relative;
+                border: 3px solid #e8eef4;
+            }
+            div.viewbox table
+            {
+                border: 0px;
+            }
+                        
+            /* testview */
+            #testview
+            {
+                padding-top: 23px;
+            }
+            
+            table.testview-items td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 1px;
+            }
+            td.right-padding, td.left-padding
+            {
+                width: 25px;
+                min-width: 25px;
+            }
+            table.testview-items a.bar
+            {
+                width: 5px;
+            }
+            table.testview-items tr.testview-items-row
+            {
+                height: 60px;
+            }
+            
+            /* scale */
+            table.vertical-scale 
+            {
+                position: absolute;
+                top: 23px;
+                left: 0px;
+                width: 100%;
+                z-index: -100;
+            }
+            table.vertical-scale td, tr.horizontal-scale td
+            {
+                font-size: 60%;
+                line-height: normal;
+            }
+            table.vertical-scale tr.scale-max, table.vertical-scale tr.scale-mid 
+            {
+                height: 30px;
+            }
+            tr.horizontal-scale, table.vertical-scale tr.scale-min 
+            {
+                height: 12px;
+            }
+            
+            td.scale-max-label, td.scale-mid-label, td.scale-min-label
+            {
+                border-top: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: top;
+            }
+            td.scale-10-label
+            {
+                border-left: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: bottom;
+                padding-left: 1px;
+            }
+            tr.scale-mid td, tr.scale-min td, tr.scale-max td
+            {
+                border-top: solid 1px #E6E6E6;
+            }
+           
+            
+            /* bar-control */
+            #bar-control
+            {
+                font-size: 60%;
+                line-height: normal;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            #bar-control label
+            {
+                font-weight: bold;
+                vertical-align: middle;
+            }
+            #bar-control .option
+            {
+                vertical-align: middle;
+                text-transform: lowercase;
+            }
+            #bar-control input[type="checkbox"]
+            {
+                padding: 0 2px 0 3px;
+            }
+            #bar-control input
+            {
+                vertical-align: top;
+                height: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #bar-control div
+            {
+                float: right;
+                margin: 3px 5px 3px 5px;
+            }
+
+            /* timeline view */
+            #timelineview
+            {
+                padding-top: 5px;
+            }
+            table.timelineview a
+            {
+                height: 20px;
+            }
+            table.timelineview td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 0px;
+                border: 0px;
+            }
+            tr.thread-items-row
+            {
+                height: 25px;
+            }
+            tr.thread-items-row td
+            {
+                vertical-align: bottom;
+            }
+            td.thread-label
+            {
+                padding: 0px 6px 0px 6px;
+                text-align: right;
+                line-height: 18px;
+                vertical-align: bottom;
+            }
+            th.thread-label
+            {
+                padding: 3px 6px 0px 6px;
+                line-height: 18px;
+                text-align: left;
+                vertical-align: bottom;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>Unnamed project Test Execution Report</h1>
+        
+    <ul>
+        <li>Project: Unnamed project</li>
+        <li>Configuration: </li>
+        <li>Test Assemblies: C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll</li>
+        <li>Start Time: 28-Feb-22 4:30:09 PM</li>
+        <li>Duration: 00:00:14.2711363</li>
+        <li>Test Threads: 1</li>
+    </ul>
+
+
+        <h2>Result: all tests passed</h2>
+        <table class="testEvents">
+                <tr>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+                <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="8 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+
+        </table>
+        
+        <h2>Test Timeline Summary</h2>
+
+        <div id="timelineview" class="viewbox">
+            <div class="scrollable">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th class="thread-label" colspan="2">thread</th>
+                    </tr>
+                        <tr class="thread-items-row">
+                            <td class="thread-label" title="Machine: CRKRL-AHMEEAFA1">#0</td>
+                            <td colspan="1">
+                                <table class="timelineview" cellpadding="0" cellspacing="0">
+                                    <tr>
+
+                                            <td>
+        <a
+            class="bar startupBar" 
+            style="width: 3px;" 
+                title="test thread startup" 
+        >&nbsp;</a>
+    </td>
+
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 12px;" 
+                title="Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK (in Bank Account Validation)" 
+                href="#t327637426.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized (in Bank Account Validation)" 
+                href="#t-1842233587.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False (in Bank Account Validation)" 
+                href="#t1193111926.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error (in Bank Account Validation)" 
+                href="#t195396667.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="Validate_The_Bank_Account_With_An_Exceeding_Length_Limit (in Bank Account Validation)" 
+                href="#t714289147.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Validate_The_Bank_Account_With_Below_Minimum_Required_Limit (in Bank Account Validation)" 
+                href="#t1737548058.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats (in Bank Account Validation)" 
+                href="#t1890931905.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 5px;" 
+                title="Validation_Of_A_Bank_Account_With_Multiple_Cases (in Bank Account Validation)" 
+                href="#t1704254163.0"
+        >&nbsp;</a>
+    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="horizontal-scale">
+                        <td>&nbsp;</td>
+                        <td class="scale-10-label">0s</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    <h2>Test Result View</h2>
+    <div id="testview" class="viewbox">
+        <div id="bar-control">
+            <div id="bar-control-sort">
+                <label>sort by:</label>
+                <span class="option"><input type="radio" name="barSortOrder" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="acttime" />Act Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="order" />Execution</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="rescode" checked="checked" />Result</span>
+                <span class="option"><input type="checkbox" name="barSortDesc" id="barSortDesc" checked="checked" />desc</span>
+            </div>
+            <div id="bar-control-heights">
+                <label>heights:</label>
+                <span class="option"><input type="radio" checked="checked" name="barHeight" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barHeight" value="acttime" />Act Time</span>
+            </div>
+        </div>
+        <table class="vertical-scale" cellpadding="0" cellspacing="0">
+            <tr class="scale-max">
+                <td class="left-padding scale-max-label">&nbsp;</td>
+                <td colspan="8">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-mid">
+                <td class="left-padding scale-mid-label">&nbsp;</td>
+                <td colspan="8">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-min">
+                <td class="left-padding scale-min-label">&nbsp;</td>
+                <td colspan="8">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+        </table>
+        <div class="scrollable">
+            <table class="testview-items" cellpadding="0" cellspacing="0">
+                <tr class="testview-items-row">
+                    <td class="left-padding">&nbsp;</td>
+    <td class="testview-item" 
+        data-sr-exectime="2.5741291" data-sr-rescode="110" data-sr-order="0" data-sr-acttime="1.528">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 60px;"
+            title="Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK (in Bank Account Validation)"
+            href="#t327637426.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.449841" data-sr-rescode="110" data-sr-order="1" data-sr-acttime="0.71">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 34px;"
+            title="Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized (in Bank Account Validation)"
+            href="#t-1842233587.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.3847772" data-sr-rescode="110" data-sr-order="2" data-sr-acttime="0.694">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 32px;"
+            title="Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False (in Bank Account Validation)"
+            href="#t1193111926.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.4180962" data-sr-rescode="110" data-sr-order="3" data-sr-acttime="0.68">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 33px;"
+            title="Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error (in Bank Account Validation)"
+            href="#t195396667.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.3441192" data-sr-rescode="110" data-sr-order="4" data-sr-acttime="0.626">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 31px;"
+            title="Validate_The_Bank_Account_With_An_Exceeding_Length_Limit (in Bank Account Validation)"
+            href="#t714289147.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.4372639" data-sr-rescode="110" data-sr-order="5" data-sr-acttime="0.703">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 34px;"
+            title="Validate_The_Bank_Account_With_Below_Minimum_Required_Limit (in Bank Account Validation)"
+            href="#t1737548058.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.3805633" data-sr-rescode="110" data-sr-order="6" data-sr-acttime="0.681">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 32px;"
+            title="Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats (in Bank Account Validation)"
+            href="#t1890931905.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.3855818" data-sr-rescode="110" data-sr-order="7" data-sr-acttime="0.683">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 32px;"
+            title="Validation_Of_A_Bank_Account_With_Multiple_Cases (in Bank Account Validation)"
+            href="#t1704254163.0">&nbsp;</a>
+    </td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="horizontal-scale">
+                    <td class="left-padding">&nbsp;</td>
+                    <td colspan="10">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+        
+        
+    <h2>Feature Summary</h2>
+    <table class="testEvents">
+            <tr>
+            <th>Feature</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+
+            <tr>
+                <td><a href="#f-1929159819">Bank Account Validation</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="8 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:12.3743717</td>
+
+            </tr>
+    </table>
+
+
+        <a name="error_summary" />
+        <h2>Error Summary</h2>
+        <table class="testEvents">
+                <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+        </table>
+
+        <h2>Scenario Summary</h2>
+            <a name="f-1929159819" />
+            <h3>Feature: Bank Account Validation</h3>
+                <div class="description"><pre>Validating Bank Account</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t327637426.0">Scenario: Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:02.5741291</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t-1842233587.0">Scenario: Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.4498410</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1193111926.0">Scenario: Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.3847772</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t195396667.0">Scenario: Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.4180962</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t714289147.0">Scenario: Validate_The_Bank_Account_With_An_Exceeding_Length_Limit</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.3441192</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1737548058.0">Scenario: Validate_The_Bank_Account_With_Below_Minimum_Required_Limit</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.4372639</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1890931905.0">Scenario: Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.3805633</td>
+
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                                    <a href="#t1704254163.0">Scenario: Validation_Of_A_Bank_Account_With_Multiple_Cases</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.3855818</td>
+
+                        
+                    </tr>
+            </table>
+
+        <h2>Execution Details</h2>
+            <a name="t327637426.0" />
+            <h3>Scenario: Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Positive_Case:A_User_with_Valid_Auth_key
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:11 PM</li>
+                <li>Execution time (sec): 2.5741291</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.029s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When User Request With A &quot; &quot; Valid JWT Token Posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:11 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenUserRequestWithAValidJWTTokenPostedToAPI(&quot; &quot;) (1.5s)</pre>
+                        </td>
+                        <td>Succeeded in 1.528s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then API Returns Status OK with Valid &quot;Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L&quot;</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:13 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:14 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  &quot;isValid&quot;: true
+}
+done: Bank_Account_Step_Definition.ThenAPIReturnsStatusOKWithValid(&quot;Q7DaxRnFls6IpwSW1...&quot;) (0.9s)</pre>
+                        </td>
+                        <td>Succeeded in 0.963s</td>
+                    </tr>
+            </table>
+            <a name="t-1842233587.0" />
+            <h3>Scenario: Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Negative_Case:_A_User_with_Invalid_Auth-Key
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:14 PM</li>
+                <li>Execution time (sec): 1.449841</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When a Request with an Invalid Auth Key is posted to api</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:14 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithAnInvalidAuthKeyIsPostedToApi() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.71s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then Api returns Authorization has been denied for this request</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:15 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:15 PM
+RESPONSE CODE:	 Unauthorized
+RESPONSE BODY:	 { 
+    &quot;message&quot;: &quot;Authorization has been denied for this request.&quot; 
+}
+done: Bank_Account_Step_Definition.ThenApiReturnsAuthorizationHasBeenDeniedForThisRequest() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.726s</td>
+                    </tr>
+            </table>
+            <a name="t1193111926.0" />
+            <h3>Scenario: Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Negative_Case_With_incorrect_Bank_Account
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:15 PM</li>
+                <li>Execution time (sec): 1.3847772</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with an Invalid Bank Account is posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:15 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithAnInvalidBankAccountIsPostedToAPI() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.694s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api return IsValid_False</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:16 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:17 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  &quot;isValid&quot;: false,
+  &quot;riskCheckMessages&quot;: [
+    {
+      &quot;type&quot;: &quot;BusinessError&quot;,
+      &quot;code&quot;: &quot;200.908&quot;,
+      &quot;message&quot;: &quot;Value format is incorrect.&quot;,
+      &quot;customerFacingMessage&quot;: &quot;Die eingegebenen Bankdaten sind ung&#252;ltig, bitte &#252;berpr&#252;fen und korrigieren.&quot;,
+      &quot;actionCode&quot;: &quot;AskConsumerToReEnterData&quot;,
+      &quot;fieldReference&quot;: &quot;bankAccount&quot;
+    }
+  ]
+}
+done: Bank_Account_Step_Definition.ThenAnApiReturnIsValid_False() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.683s</td>
+                    </tr>
+            </table>
+            <a name="t195396667.0" />
+            <h3>Scenario: Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Case_With_An_Empty_Bank_Account
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:17 PM</li>
+                <li>Execution time (sec): 1.4180962</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with an Empty Bank Account is posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:17 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithAnEmptyBankAccountIsPostedToAPI() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.68s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api return Request Validation Error</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:17 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:18 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    &quot;type&quot;: &quot;BusinessError&quot;,
+    &quot;code&quot;: &quot;400.002&quot;,
+    &quot;message&quot;: &quot;Value is required.&quot;,
+    &quot;customerFacingMessage&quot;: &quot;Value is required.&quot;,
+    &quot;actionCode&quot;: &quot;AskConsumerToReEnterData&quot;,
+    &quot;fieldReference&quot;: &quot;bankAccount&quot;
+  }
+]
+done: Bank_Account_Step_Definition.ThenAnApiReturnRequestValidationError() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.727s</td>
+                    </tr>
+            </table>
+            <a name="t714289147.0" />
+            <h3>Scenario: Validate_The_Bank_Account_With_An_Exceeding_Length_Limit (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Case_With_A_Bank_Account_Invalid_IBAN_Format_(Exceeding_Length_Limit)
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:18 PM</li>
+                <li>Execution time (sec): 1.3441192</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_The_Bank_Account_With_An_Exceeding_Length_Limit] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with an Exceeding_Length_Limit Bank Account is posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_The_Bank_Account_With_An_Exceeding_Length_Limit] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:18 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithAnExceeding_Length_LimitBankAccountIsPostedToAPI() (0.6s)</pre>
+                        </td>
+                        <td>Succeeded in 0.626s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api return Format Validation Error</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_The_Bank_Account_With_An_Exceeding_Length_Limit] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:19 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:19 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    &quot;type&quot;: &quot;BusinessError&quot;,
+    &quot;code&quot;: &quot;400.005&quot;,
+    &quot;message&quot;: &quot;A string value exceeds maximum length of 34.&quot;,
+    &quot;customerFacingMessage&quot;: &quot;A string value exceeds maximum length of 34.&quot;,
+    &quot;actionCode&quot;: &quot;AskConsumerToReEnterData&quot;,
+    &quot;fieldReference&quot;: &quot;bankAccount&quot;
+  }
+]
+done: Bank_Account_Step_Definition.ThenAnApiReturnFormatValidationError() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.712s</td>
+                    </tr>
+            </table>
+            <a name="t1737548058.0" />
+            <h3>Scenario: Validate_The_Bank_Account_With_Below_Minimum_Required_Limit (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Case_With_A_Bank_Account_Invalid_IBAN_Format_(Short_Length)
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:19 PM</li>
+                <li>Execution time (sec): 1.4372639</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validate_The_Bank_Account_With_Below_Minimum_Required_Limit] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with a Below Minimum Required Limit Bank Accountis posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validate_The_Bank_Account_With_Below_Minimum_Required_Limit] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:19 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithABelowMinimumRequiredLimitBankAccountisPostedToAPI() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.703s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api return Short Length Format Validation Error</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validate_The_Bank_Account_With_Below_Minimum_Required_Limit] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:20 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:21 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    &quot;type&quot;: &quot;BusinessError&quot;,
+    &quot;code&quot;: &quot;400.006&quot;,
+    &quot;message&quot;: &quot;A string value with minimum length 7 is required.&quot;,
+    &quot;customerFacingMessage&quot;: &quot;A string value with minimum length 7 is required.&quot;,
+    &quot;actionCode&quot;: &quot;AskConsumerToReEnterData&quot;,
+    &quot;fieldReference&quot;: &quot;bankAccount&quot;
+  }
+]
+done: Bank_Account_Step_Definition.ThenAnApiReturnShortLengthFormatValidationError() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.727s</td>
+                    </tr>
+            </table>
+            <a name="t1890931905.0" />
+            <h3>Scenario: Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Case_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:21 PM</li>
+                <li>Execution time (sec): 1.3805633</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with a Different Countries IBAN  Posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:21 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithADifferentCountriesIBANPostedToAPI() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.681s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api Validation Return IBAN Format Response</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:22 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:22 PM
+RESPONSE CODE:	 OK
+RESPONSE BODY:	 {
+  &quot;isValid&quot;: true
+}
+done: Bank_Account_Step_Definition.ThenAnApiValidationReturnIBANFormatResponse() (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.693s</td>
+                    </tr>
+            </table>
+            <a name="t1704254163.0" />
+            <h3>Scenario: Validation_Of_A_Bank_Account_With_Multiple_Cases (in API_Test_Bank_Account_Validation, Bank Account Validation)</h3>
+                <div class="description">
+                    tags: Case_With_A_Bank_Account_Every_Bug
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 28-Feb-22 4:30:22 PM</li>
+                <li>Execution time (sec): 1.3855818</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given Set Bank Account &#39;API&#39; Endpoint</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - Validation_Of_A_Bank_Account_With_Multiple_Cases] -->
+                            <pre class="log">done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint(&quot;API&quot;) (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When A Request with an &quot;DK5000400440116243&quot; Cases Posted to API</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - Validation_Of_A_Bank_Account_With_Multiple_Cases] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:22 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+done: Bank_Account_Step_Definition.WhenARequestWithAnIBANCasesPostedToAPI(&quot;DK5000400440116243&quot;) (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.683s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then An Api return &quot;IBAN&quot; Validation Error</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - Validation_Of_A_Bank_Account_With_Multiple_Cases] -->
+                            <pre class="log">**********API REQUEST DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:23 PM
+REQUEST METHOD:	Post
+REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+**********API RESPONSE DETAILS**********
+Date &amp; Time:	28-Feb-22 4:30:24 PM
+RESPONSE CODE:	 BadRequest
+RESPONSE BODY:	 [
+  {
+    &quot;type&quot;: &quot;BusinessError&quot;,
+    &quot;code&quot;: &quot;400.006&quot;,
+    &quot;message&quot;: &quot;A string value with minimum length 7 is required.&quot;,
+    &quot;customerFacingMessage&quot;: &quot;A string value with minimum length 7 is required.&quot;,
+    &quot;actionCode&quot;: &quot;AskConsumerToReEnterData&quot;,
+    &quot;fieldReference&quot;: &quot;bankAccount&quot;
+  }
+]
+done: Bank_Account_Step_Definition.ThenAnApiValidationReturnsIBANFormatResponse(&quot;IBAN&quot;) (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.695s</td>
+                    </tr>
+            </table>
+	</body>
+</html>

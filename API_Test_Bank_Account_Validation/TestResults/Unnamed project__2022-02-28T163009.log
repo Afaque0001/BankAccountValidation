@@ -1,0 +1,459 @@
+﻿2022-02-28T16:30:09.6757909+05:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2022-02-28T16:30:09.6760101+05:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.9.31 in Framework netcore31 in x64 mode execution started
+2022-02-28T16:30:09.6760149+05:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2022-02-28T16:30:09.6779037+05:00;VSTestExecutionThread;Info;Current UserName: 'ahmeeafa', MachineName: 'CRKRL-AHMEEAFA1'
+2022-02-28T16:30:09.7067086+05:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll
+2022-02-28T16:30:09.7071222+05:00;VSTestExecutionThread;Info;Output folder configured to "C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\TestResults" (default)
+2022-02-28T16:30:09.7074161+05:00;VSTestExecutionThread;Info;Profile: 
+2022-02-28T16:30:09.7503763+05:00;VSTestExecutionThread;Info;Log file path: C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\TestResults\Unnamed project__2022-02-28T163009.log
+2022-02-28T16:30:09.7552786+05:00;Thread#12;Info;Checking activation
+2022-02-28T16:30:09.8488258+05:00;Thread#12;Info;Activated.
+2022-02-28T16:30:09.8492691+05:00;Thread#12;Info;Activation check completed
+2022-02-28T16:30:09.8497745+05:00;Thread#12;Info;Starting test run
+2022-02-28T16:30:09.9392420+05:00;Thread#12;Info;Discovering target: Default
+2022-02-28T16:30:09.9395811+05:00;Thread#12;Info;Discovering tests from assembly: C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll
+2022-02-28T16:30:10.1283898+05:00;Thread#12;Info;Discovered tests from assembly: C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll
+2022-02-28T16:30:10.1303660+05:00:Test Suite Dump
+2022-02-28T16:30:10.1324368+05:00:#0: Unnamed project/ - 
+2022-02-28T16:30:10.1324636+05:00:#1: Default - 
+2022-02-28T16:30:10.1324664+05:00:#2: API_Test_Bank_Account_Validation - 
+2022-02-28T16:30:10.1324682+05:00:#3: Bank Account Validation - 
+2022-02-28T16:30:10.1338696+05:00:#4: Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_if_A_User_has_A_Valid_Auth_Key_And_AccountNo_Return_status_Code_OK
+2022-02-28T16:30:10.1339387+05:00:#5: Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_if_A_User_with_Invalid_Auth_Key_And_Valid_Account_No_Return_status_Unauthorized
+2022-02-28T16:30:10.1339606+05:00:#6: Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid:False - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_A_User_With_An_Invalid_AccountNo_Return_IsValid%3aFalse
+2022-02-28T16:30:10.1339785+05:00:#7: Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_The_Response_If_The_request_has_Empty_Bank_Account_No_And_Return_Request_Validation_Error
+2022-02-28T16:30:10.1339928+05:00:#8: Validate_The_Bank_Account_With_An_Exceeding_Length_Limit - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_The_Bank_Account_With_An_Exceeding_Length_Limit
+2022-02-28T16:30:10.1340069+05:00:#9: Validate_The_Bank_Account_With_Below_Minimum_Required_Limit - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validate_The_Bank_Account_With_Below_Minimum_Required_Limit
+2022-02-28T16:30:10.1340212+05:00:#10: Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validation_Of_A_Bank_Account_Support_Multiple_Countries_IBAN_Formats
+2022-02-28T16:30:10.1340339+05:00:#11: Validation_Of_A_Bank_Account_With_Multiple_Cases - TestAssembly:API_Test_Bank_Account_Validation/Feature:Bank+Account+Validation/Scenario:Validation_Of_A_Bank_Account_With_Multiple_Cases
+2022-02-28T16:30:10.1340740+05:00:End: Test Suite Dump
+2022-02-28T16:30:10.1564609+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:10.1583799+05:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2022-02-28T16:30:10.1584356+05:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2022-02-28T16:30:10.1624448+05:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:10.1624642+05:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:10.1624680+05:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:10.1624727+05:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2022-02-28T16:30:10.1631811+05:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2022-02-28T16:30:10.1647142+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:10.1673835+05:00:Thread #0: creating new test thread executor for API_Test_Bank_Account_Validation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2022-02-28T16:30:10.1703964+05:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-02-28T16:30:10.1706374+05:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-02-28T16:30:10.1736749+05:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2022-02-28T16:30:10.1753506+05:00:starting Out Of Process Executor
+2022-02-28T16:30:10.1819851+05:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-02-28T16:30:10.1860210+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2022-02-28T16:30:10.1860481+05:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2022-02-28T16:30:10.1874124+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:10.1878296+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-02-28T16:30:10.1879333+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2022-02-28T16:30:10.1879822+05:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:10.1881943+05:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-02-28T16:30:10.1888166+05:00:Tfm: netcoreapp3.1
+2022-02-28T16:30:10.1888271+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-02-28T16:30:10.1888302+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-02-28T16:30:10.1889139+05:00:[AssemblyCache] Found file 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2022-02-28T16:30:10.1894300+05:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2022-02-28T16:30:10.1905292+05:00:Starting callback TCP Rpc server
+2022-02-28T16:30:10.2096230+05:00:Asynchronously starting background TCP Rpc Server on port 32768
+2022-02-28T16:30:10.2096666+05:00:Started callback TCP Rpc server on port 32768
+2022-02-28T16:30:10.2096693+05:00:Starting logger TCP Rpc server
+2022-02-28T16:30:10.2122705+05:00:Asynchronously starting background TCP Rpc Server on port 32769
+2022-02-28T16:30:10.2123078+05:00:Started logger TCP Rpc server on port 32769
+2022-02-28T16:30:10.3363887+05:00:Executing test executor at 'dotnet' 'exec "C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 5312 --uniqueId "2022-02-28T163009" --outputFolder "C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\TestResults" --callbackPort 32768 --loggerPort 32769' in 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:10.3581396+05:00:Executor with PID 19368 has been started successfully.
+2022-02-28T16:30:10.3622447+05:00:Out of Process Executor 19368 started
+2022-02-28T16:30:10.3622613+05:00:Waiting for endpoint
+2022-02-28T16:30:10.8450586+05:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-02-28T16:30:10.8451336+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2022-02-28T16:30:10.8451421+05:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2022-02-28T16:30:10.8451558+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:10.8451597+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-02-28T16:30:10.8452679+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2022-02-28T16:30:10.8453432+05:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:10.8453613+05:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-02-28T16:30:10.8454708+05:00:Tfm: netcoreapp3.1
+2022-02-28T16:30:10.8454941+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-02-28T16:30:10.8454982+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-02-28T16:30:10.8456117+05:00:[AssemblyCache] Found file 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2022-02-28T16:30:10.8465096+05:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2022-02-28T16:30:11.1144484+05:00:Remote executor port received: 32770
+2022-02-28T16:30:11.1148699+05:00:Creating executor TCP client on port 32770
+2022-02-28T16:30:11.1152791+05:00:Created executor TCP client on port 32770
+2022-02-28T16:30:11.1152867+05:00:Connecting to remote executor TCP server
+2022-02-28T16:30:11.1163939+05:00:Connected remote executor TCP server
+2022-02-28T16:30:11.1166169+05:00:trying to connect to Out of Process Executor the 1 attempt
+2022-02-28T16:30:11.1166281+05:00:Connection to Out of Process Executor established in the 1 attempt
+2022-02-28T16:30:11.2897340+05:00:2022-02-28T16:30:11.2876457+05:00:OutOfProcessTestAssemblyExecutor: initialized for C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll on test thread #0
+2022-02-28T16:30:11.2950261+05:00:Endpoint 19368 started
+2022-02-28T16:30:11.3173890+05:00:2022-02-28T16:30:11.3165965+05:00:OutOfProcessTestAssemblyExecutor: running tests...
+2022-02-28T16:30:11.4589582+05:00:2022-02-28T16:30:11.4583088+05:00:Assembly resolving TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-02-28T16:30:11.4626436+05:00:2022-02-28T16:30:11.4620969+05:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2022-02-28T16:30:11.4660363+05:00:2022-02-28T16:30:11.4654467+05:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\ahmeeafa\.nuget\packages\specflow\3.9.52\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2022-02-28T16:30:11.5870732+05:00:2022-02-28T16:30:11.5861822+05:00:Thread#0:T:-> Loading plugin C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\API_Test_Bank_Account_Validation.dll
+2022-02-28T16:30:11.5886824+05:00:2022-02-28T16:30:11.5881817+05:00:Assembly resolving Microsoft.Extensions.DependencyModel, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-02-28T16:30:11.5893833+05:00:2022-02-28T16:30:11.5889589+05:00:[AssemblyCache] Trying to resolve 'Microsoft.Extensions.DependencyModel' from .deps.json file
+2022-02-28T16:30:11.5904666+05:00:2022-02-28T16:30:11.5898261+05:00:[AssemblyCache] Resolved 'Microsoft.Extensions.DependencyModel' to 'C:\Users\ahmeeafa\.nuget\packages\microsoft.extensions.dependencymodel\1.0.3\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll'
+2022-02-28T16:30:11.6389423+05:00:2022-02-28T16:30:11.6383589+05:00:Assembly resolving Microsoft.DotNet.PlatformAbstractions, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-02-28T16:30:11.6397881+05:00:2022-02-28T16:30:11.6393585+05:00:[AssemblyCache] Trying to resolve 'Microsoft.DotNet.PlatformAbstractions' from .deps.json file
+2022-02-28T16:30:11.6405963+05:00:2022-02-28T16:30:11.6401870+05:00:[AssemblyCache] Resolved 'Microsoft.DotNet.PlatformAbstractions' to 'C:\Users\ahmeeafa\.nuget\packages\microsoft.dotnet.platformabstractions\1.0.3\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll'
+2022-02-28T16:30:11.6503606+05:00:2022-02-28T16:30:11.6496991+05:00:Thread#0:T:-> Loading plugin C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2022-02-28T16:30:11.6640105+05:00:2022-02-28T16:30:11.6633868+05:00:Thread#0:T:-> Using default config
+2022-02-28T16:30:11.6755126+05:00:2022-02-28T16:30:11.6748607+05:00:Assembly resolving RestSharp, Version=107.3.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75
+2022-02-28T16:30:11.6762438+05:00:2022-02-28T16:30:11.6758286+05:00:[AssemblyCache] Trying to resolve 'RestSharp' from .deps.json file
+2022-02-28T16:30:11.6771416+05:00:2022-02-28T16:30:11.6766646+05:00:[AssemblyCache] Resolved 'RestSharp' to 'C:\Users\ahmeeafa\.nuget\packages\restsharp\107.3.0\lib\netstandard2.0\RestSharp.dll'
+2022-02-28T16:30:11.6818647+05:00:2022-02-28T16:30:11.6812995+05:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-02-28T16:30:11.6827743+05:00:2022-02-28T16:30:11.6821885+05:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2022-02-28T16:30:11.6837231+05:00:2022-02-28T16:30:11.6832706+05:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\ahmeeafa\.nuget\packages\microsoft.testplatform.objectmodel\16.5.0\lib\netstandard2.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2022-02-28T16:30:11.7155359+05:00:2022-02-28T16:30:11.7145205+05:00:Assembly resolving SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-02-28T16:30:11.7164035+05:00:2022-02-28T16:30:11.7158535+05:00:[AssemblyCache] Trying to resolve 'SpecFlow.Internal.Json' from .deps.json file
+2022-02-28T16:30:11.7172907+05:00:2022-02-28T16:30:11.7167946+05:00:[AssemblyCache] Resolved 'SpecFlow.Internal.Json' to 'C:\Users\ahmeeafa\.nuget\packages\specflow.internal.json\1.0.8\lib\netstandard2.0\SpecFlow.Internal.Json.dll'
+2022-02-28T16:30:11.7923278+05:00:Thread#0: Test #4/0 is started on thread #0
+2022-02-28T16:30:11.8107595+05:00:2022-02-28T16:30:11.8092370+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:11.8301728+05:00:2022-02-28T16:30:11.8294719+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:11.8319499+05:00:2022-02-28T16:30:11.8313507+05:00:Thread#0:B:When User Request With A " " Valid JWT Token Posted to API
+2022-02-28T16:30:11.8480992+05:00:2022-02-28T16:30:11.8474759+05:00:Assembly resolving System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+2022-02-28T16:30:11.8487541+05:00:2022-02-28T16:30:11.8483212+05:00:[AssemblyCache] Trying to resolve 'System.Text.Json' from .deps.json file
+2022-02-28T16:30:11.8495913+05:00:2022-02-28T16:30:11.8491699+05:00:[AssemblyCache] Resolved 'System.Text.Json' to 'C:\Users\ahmeeafa\.nuget\packages\system.text.json\5.0.0\lib\netcoreapp3.0\System.Text.Json.dll'
+2022-02-28T16:30:11.8683579+05:00:2022-02-28T16:30:11.8676300+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:11.8690625+05:00:2022-02-28T16:30:11.8686241+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:11 PM
+2022-02-28T16:30:11.8696485+05:00:2022-02-28T16:30:11.8692490+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:11.8702636+05:00:2022-02-28T16:30:11.8698308+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:13.3578929+05:00:2022-02-28T16:30:13.3563167+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenUserRequestWithAValidJWTTokenPostedToAPI(" ") (1.5s)
+2022-02-28T16:30:13.3602344+05:00:2022-02-28T16:30:13.3593078+05:00:Thread#0:B:Then API Returns Status OK with Valid "Q7DaxRnFls6IpwSW1SQ2FaTFOf7UdReAFNoKY68L"
+2022-02-28T16:30:13.3740699+05:00:2022-02-28T16:30:13.3729593+05:00:Assembly resolving nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb
+2022-02-28T16:30:13.3756095+05:00:2022-02-28T16:30:13.3747445+05:00:[AssemblyCache] Trying to resolve 'nunit.framework' from .deps.json file
+2022-02-28T16:30:13.3769296+05:00:2022-02-28T16:30:13.3763437+05:00:[AssemblyCache] Resolved 'nunit.framework' to 'C:\Users\ahmeeafa\.nuget\packages\nunit\3.12.0\lib\netstandard2.0\nunit.framework.dll'
+2022-02-28T16:30:13.3804522+05:00:2022-02-28T16:30:13.3799458+05:00:Assembly resolving Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+2022-02-28T16:30:13.3810957+05:00:2022-02-28T16:30:13.3806567+05:00:[AssemblyCache] Trying to resolve 'Newtonsoft.Json' from .deps.json file
+2022-02-28T16:30:13.3818211+05:00:2022-02-28T16:30:13.3814191+05:00:[AssemblyCache] Resolved 'Newtonsoft.Json' to 'C:\Users\ahmeeafa\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll'
+2022-02-28T16:30:13.3872627+05:00:2022-02-28T16:30:13.3867283+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:13.3879028+05:00:2022-02-28T16:30:13.3875239+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:13 PM
+2022-02-28T16:30:13.3884385+05:00:2022-02-28T16:30:13.3880564+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:13.3889187+05:00:2022-02-28T16:30:13.3885826+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:14.2330608+05:00:2022-02-28T16:30:14.2315753+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:14.2348147+05:00:2022-02-28T16:30:14.2339277+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:14 PM
+2022-02-28T16:30:14.2366248+05:00:2022-02-28T16:30:14.2354933+05:00:Thread#0:T:RESPONSE CODE:	 OK
+2022-02-28T16:30:14.2379454+05:00:2022-02-28T16:30:14.2372282+05:00:Thread#0:T:RESPONSE BODY:	 {
+2022-02-28T16:30:14.2391178+05:00:2022-02-28T16:30:14.2384044+05:00:Thread#0:T:  "isValid": true
+2022-02-28T16:30:14.2401609+05:00:2022-02-28T16:30:14.2395313+05:00:Thread#0:T:}
+2022-02-28T16:30:14.3208225+05:00:2022-02-28T16:30:14.3196670+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAPIReturnsStatusOKWithValid("Q7DaxRnFls6IpwSW1...") (0.9s)
+2022-02-28T16:30:14.3284050+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:14.3284469+05:00:Thread#:Scheduler: testitem #5 from normal test queue 
+2022-02-28T16:30:14.3284512+05:00:Thread#0:Scheduler: considering testitem #5 for thread 0
+2022-02-28T16:30:14.3285225+05:00:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:14.3285272+05:00:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:14.3285285+05:00:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:14.3285299+05:00:Thread#0:Scheduler: using testitem #5 for thread 0
+2022-02-28T16:30:14.3285555+05:00:Thread#0:Scheduler: Test #5 is scheduled for thread
+2022-02-28T16:30:14.3285931+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:14.3673454+05:00:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 2.5741291 seconds
+2022-02-28T16:30:14.3704439+05:00:Thread#0: Test #5/0 is started on thread #0
+2022-02-28T16:30:14.3722675+05:00:2022-02-28T16:30:14.3718104+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:14.3733347+05:00:2022-02-28T16:30:14.3728755+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:14.3740567+05:00:2022-02-28T16:30:14.3735966+05:00:Thread#0:B:When a Request with an Invalid Auth Key is posted to api
+2022-02-28T16:30:14.3766793+05:00:2022-02-28T16:30:14.3760501+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:14.3775242+05:00:2022-02-28T16:30:14.3769784+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:14 PM
+2022-02-28T16:30:14.3783143+05:00:2022-02-28T16:30:14.3778020+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:14.3790279+05:00:2022-02-28T16:30:14.3785815+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:15.0828696+05:00:2022-02-28T16:30:15.0810817+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithAnInvalidAuthKeyIsPostedToApi() (0.7s)
+2022-02-28T16:30:15.0846430+05:00:2022-02-28T16:30:15.0838743+05:00:Thread#0:B:Then Api returns Authorization has been denied for this request
+2022-02-28T16:30:15.0893016+05:00:2022-02-28T16:30:15.0885555+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:15.0903074+05:00:2022-02-28T16:30:15.0896822+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:15 PM
+2022-02-28T16:30:15.0910213+05:00:2022-02-28T16:30:15.0906723+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:15.0914959+05:00:2022-02-28T16:30:15.0911736+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:15.7987859+05:00:2022-02-28T16:30:15.7974505+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:15.8000156+05:00:2022-02-28T16:30:15.7994267+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:15 PM
+2022-02-28T16:30:15.8008463+05:00:2022-02-28T16:30:15.8003247+05:00:Thread#0:T:RESPONSE CODE:	 Unauthorized
+2022-02-28T16:30:15.8017708+05:00:2022-02-28T16:30:15.8011586+05:00:Thread#0:T:RESPONSE BODY:	 { 
+2022-02-28T16:30:15.8028993+05:00:2022-02-28T16:30:15.8021886+05:00:Thread#0:T:    "message": "Authorization has been denied for this request." 
+2022-02-28T16:30:15.8037764+05:00:2022-02-28T16:30:15.8032316+05:00:Thread#0:T:}
+2022-02-28T16:30:15.8098063+05:00:2022-02-28T16:30:15.8091808+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenApiReturnsAuthorizationHasBeenDeniedForThisRequest() (0.7s)
+2022-02-28T16:30:15.8116821+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:15.8117412+05:00:Thread#:Scheduler: testitem #6 from normal test queue 
+2022-02-28T16:30:15.8117852+05:00:Thread#0:Scheduler: considering testitem #6 for thread 0
+2022-02-28T16:30:15.8118717+05:00:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:15.8119155+05:00:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:15.8119615+05:00:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:15.8119776+05:00:Thread#0:Scheduler: using testitem #6 for thread 0
+2022-02-28T16:30:15.8120532+05:00:Thread#0:Scheduler: Test #6 is scheduled for thread
+2022-02-28T16:30:15.8121054+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:15.8204167+05:00:Thread#0: Test #5/0 is finished on thread #0 as Succeeded within 1.449841 seconds
+2022-02-28T16:30:15.8215558+05:00:Thread#0: Test #6/0 is started on thread #0
+2022-02-28T16:30:15.8236945+05:00:2022-02-28T16:30:15.8231235+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:15.8247124+05:00:2022-02-28T16:30:15.8243021+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:15.8255777+05:00:2022-02-28T16:30:15.8250550+05:00:Thread#0:B:When A Request with an Invalid Bank Account is posted to API
+2022-02-28T16:30:15.8278496+05:00:2022-02-28T16:30:15.8273480+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:15.8284077+05:00:2022-02-28T16:30:15.8280332+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:15 PM
+2022-02-28T16:30:15.8289057+05:00:2022-02-28T16:30:15.8285679+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:15.8295832+05:00:2022-02-28T16:30:15.8291252+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:16.5177521+05:00:2022-02-28T16:30:16.5167183+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithAnInvalidBankAccountIsPostedToAPI() (0.7s)
+2022-02-28T16:30:16.5191697+05:00:2022-02-28T16:30:16.5186309+05:00:Thread#0:B:Then An Api return IsValid_False
+2022-02-28T16:30:16.5225107+05:00:2022-02-28T16:30:16.5220783+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:16.5229922+05:00:2022-02-28T16:30:16.5226956+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:16 PM
+2022-02-28T16:30:16.5234232+05:00:2022-02-28T16:30:16.5231505+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:16.5238242+05:00:2022-02-28T16:30:16.5235465+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:17.1754346+05:00:2022-02-28T16:30:17.1744417+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:17.1762766+05:00:2022-02-28T16:30:17.1759421+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:17 PM
+2022-02-28T16:30:17.1768856+05:00:2022-02-28T16:30:17.1765147+05:00:Thread#0:T:RESPONSE CODE:	 OK
+2022-02-28T16:30:17.1773624+05:00:2022-02-28T16:30:17.1770698+05:00:Thread#0:T:RESPONSE BODY:	 {
+2022-02-28T16:30:17.1777991+05:00:2022-02-28T16:30:17.1775212+05:00:Thread#0:T:  "isValid": false,
+2022-02-28T16:30:17.1782663+05:00:2022-02-28T16:30:17.1779559+05:00:Thread#0:T:  "riskCheckMessages": [
+2022-02-28T16:30:17.1786644+05:00:2022-02-28T16:30:17.1783919+05:00:Thread#0:T:    {
+2022-02-28T16:30:17.1791556+05:00:2022-02-28T16:30:17.1788210+05:00:Thread#0:T:      "type": "BusinessError",
+2022-02-28T16:30:17.1796686+05:00:2022-02-28T16:30:17.1793201+05:00:Thread#0:T:      "code": "200.908",
+2022-02-28T16:30:17.1801088+05:00:2022-02-28T16:30:17.1797877+05:00:Thread#0:T:      "message": "Value format is incorrect.",
+2022-02-28T16:30:17.1805356+05:00:2022-02-28T16:30:17.1802190+05:00:Thread#0:T:      "customerFacingMessage": "Die eingegebenen Bankdaten sind ungültig, bitte überprüfen und korrigieren.",
+2022-02-28T16:30:17.1809682+05:00:2022-02-28T16:30:17.1807074+05:00:Thread#0:T:      "actionCode": "AskConsumerToReEnterData",
+2022-02-28T16:30:17.1813448+05:00:2022-02-28T16:30:17.1810780+05:00:Thread#0:T:      "fieldReference": "bankAccount"
+2022-02-28T16:30:17.1817015+05:00:2022-02-28T16:30:17.1814467+05:00:Thread#0:T:    }
+2022-02-28T16:30:17.1820589+05:00:2022-02-28T16:30:17.1818043+05:00:Thread#0:T:  ]
+2022-02-28T16:30:17.1824208+05:00:2022-02-28T16:30:17.1821671+05:00:Thread#0:T:}
+2022-02-28T16:30:17.2014850+05:00:2022-02-28T16:30:17.2007916+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiReturnIsValid_False() (0.7s)
+2022-02-28T16:30:17.2037707+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:17.2038089+05:00:Thread#:Scheduler: testitem #7 from normal test queue 
+2022-02-28T16:30:17.2038120+05:00:Thread#0:Scheduler: considering testitem #7 for thread 0
+2022-02-28T16:30:17.2039016+05:00:Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:17.2039063+05:00:Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:17.2039074+05:00:Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:17.2039087+05:00:Thread#0:Scheduler: using testitem #7 for thread 0
+2022-02-28T16:30:17.2039428+05:00:Thread#0:Scheduler: Test #7 is scheduled for thread
+2022-02-28T16:30:17.2039786+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:17.2064191+05:00:Thread#0: Test #6/0 is finished on thread #0 as Succeeded within 1.3847772 seconds
+2022-02-28T16:30:17.2072456+05:00:Thread#0: Test #7/0 is started on thread #0
+2022-02-28T16:30:17.2091597+05:00:2022-02-28T16:30:17.2086076+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:17.2101100+05:00:2022-02-28T16:30:17.2097157+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:17.2107308+05:00:2022-02-28T16:30:17.2103704+05:00:Thread#0:B:When A Request with an Empty Bank Account is posted to API
+2022-02-28T16:30:17.2126543+05:00:2022-02-28T16:30:17.2122583+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:17.2132043+05:00:2022-02-28T16:30:17.2128064+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:17 PM
+2022-02-28T16:30:17.2136076+05:00:2022-02-28T16:30:17.2133329+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:17.2141123+05:00:2022-02-28T16:30:17.2138299+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:17.8897889+05:00:2022-02-28T16:30:17.8883113+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithAnEmptyBankAccountIsPostedToAPI() (0.7s)
+2022-02-28T16:30:17.8917936+05:00:2022-02-28T16:30:17.8908772+05:00:Thread#0:B:Then An Api return Request Validation Error
+2022-02-28T16:30:17.8969700+05:00:2022-02-28T16:30:17.8959963+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:17.8982359+05:00:2022-02-28T16:30:17.8975851+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:17 PM
+2022-02-28T16:30:17.8993449+05:00:2022-02-28T16:30:17.8986908+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:17.9005418+05:00:2022-02-28T16:30:17.8998829+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:18.6027789+05:00:2022-02-28T16:30:18.6018792+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:18.6040347+05:00:2022-02-28T16:30:18.6032153+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:18 PM
+2022-02-28T16:30:18.6048871+05:00:2022-02-28T16:30:18.6043915+05:00:Thread#0:T:RESPONSE CODE:	 BadRequest
+2022-02-28T16:30:18.6056188+05:00:2022-02-28T16:30:18.6051279+05:00:Thread#0:T:RESPONSE BODY:	 [
+2022-02-28T16:30:18.6063784+05:00:2022-02-28T16:30:18.6058926+05:00:Thread#0:T:  {
+2022-02-28T16:30:18.6072049+05:00:2022-02-28T16:30:18.6067368+05:00:Thread#0:T:    "type": "BusinessError",
+2022-02-28T16:30:18.6078754+05:00:2022-02-28T16:30:18.6074564+05:00:Thread#0:T:    "code": "400.002",
+2022-02-28T16:30:18.6085758+05:00:2022-02-28T16:30:18.6081399+05:00:Thread#0:T:    "message": "Value is required.",
+2022-02-28T16:30:18.6092405+05:00:2022-02-28T16:30:18.6088072+05:00:Thread#0:T:    "customerFacingMessage": "Value is required.",
+2022-02-28T16:30:18.6098445+05:00:2022-02-28T16:30:18.6094408+05:00:Thread#0:T:    "actionCode": "AskConsumerToReEnterData",
+2022-02-28T16:30:18.6104628+05:00:2022-02-28T16:30:18.6100696+05:00:Thread#0:T:    "fieldReference": "bankAccount"
+2022-02-28T16:30:18.6110395+05:00:2022-02-28T16:30:18.6106804+05:00:Thread#0:T:  }
+2022-02-28T16:30:18.6116212+05:00:2022-02-28T16:30:18.6112432+05:00:Thread#0:T:]
+2022-02-28T16:30:18.6177213+05:00:2022-02-28T16:30:18.6169476+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiReturnRequestValidationError() (0.7s)
+2022-02-28T16:30:18.6197170+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:18.6197470+05:00:Thread#:Scheduler: testitem #8 from normal test queue 
+2022-02-28T16:30:18.6197535+05:00:Thread#0:Scheduler: considering testitem #8 for thread 0
+2022-02-28T16:30:18.6198368+05:00:Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:18.6198411+05:00:Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:18.6198429+05:00:Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:18.6198466+05:00:Thread#0:Scheduler: using testitem #8 for thread 0
+2022-02-28T16:30:18.6198842+05:00:Thread#0:Scheduler: Test #8 is scheduled for thread
+2022-02-28T16:30:18.6199363+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:18.6254081+05:00:Thread#0: Test #7/0 is finished on thread #0 as Succeeded within 1.4180962 seconds
+2022-02-28T16:30:18.6261181+05:00:Thread#0: Test #8/0 is started on thread #0
+2022-02-28T16:30:18.6279355+05:00:2022-02-28T16:30:18.6275095+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:18.6287736+05:00:2022-02-28T16:30:18.6284639+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:18.6292360+05:00:2022-02-28T16:30:18.6289459+05:00:Thread#0:B:When A Request with an Exceeding_Length_Limit Bank Account is posted to API
+2022-02-28T16:30:18.6315296+05:00:2022-02-28T16:30:18.6310139+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:18.6320484+05:00:2022-02-28T16:30:18.6316989+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:18 PM
+2022-02-28T16:30:18.6324568+05:00:2022-02-28T16:30:18.6321863+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:18.6328420+05:00:2022-02-28T16:30:18.6325799+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:19.2543112+05:00:2022-02-28T16:30:19.2535973+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithAnExceeding_Length_LimitBankAccountIsPostedToAPI() (0.6s)
+2022-02-28T16:30:19.2553433+05:00:2022-02-28T16:30:19.2549635+05:00:Thread#0:B:Then An Api return Format Validation Error
+2022-02-28T16:30:19.2588780+05:00:2022-02-28T16:30:19.2583958+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:19.2595127+05:00:2022-02-28T16:30:19.2591426+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:19 PM
+2022-02-28T16:30:19.2599677+05:00:2022-02-28T16:30:19.2596635+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:19.2603730+05:00:2022-02-28T16:30:19.2600932+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:19.9591884+05:00:2022-02-28T16:30:19.9586096+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:19.9601478+05:00:2022-02-28T16:30:19.9595997+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:19 PM
+2022-02-28T16:30:19.9607411+05:00:2022-02-28T16:30:19.9604384+05:00:Thread#0:T:RESPONSE CODE:	 BadRequest
+2022-02-28T16:30:19.9611125+05:00:2022-02-28T16:30:19.9608485+05:00:Thread#0:T:RESPONSE BODY:	 [
+2022-02-28T16:30:19.9614691+05:00:2022-02-28T16:30:19.9612156+05:00:Thread#0:T:  {
+2022-02-28T16:30:19.9619292+05:00:2022-02-28T16:30:19.9616264+05:00:Thread#0:T:    "type": "BusinessError",
+2022-02-28T16:30:19.9623355+05:00:2022-02-28T16:30:19.9620386+05:00:Thread#0:T:    "code": "400.005",
+2022-02-28T16:30:19.9627262+05:00:2022-02-28T16:30:19.9624517+05:00:Thread#0:T:    "message": "A string value exceeds maximum length of 34.",
+2022-02-28T16:30:19.9631185+05:00:2022-02-28T16:30:19.9628358+05:00:Thread#0:T:    "customerFacingMessage": "A string value exceeds maximum length of 34.",
+2022-02-28T16:30:19.9635029+05:00:2022-02-28T16:30:19.9632353+05:00:Thread#0:T:    "actionCode": "AskConsumerToReEnterData",
+2022-02-28T16:30:19.9638741+05:00:2022-02-28T16:30:19.9636045+05:00:Thread#0:T:    "fieldReference": "bankAccount"
+2022-02-28T16:30:19.9643646+05:00:2022-02-28T16:30:19.9640592+05:00:Thread#0:T:  }
+2022-02-28T16:30:19.9648698+05:00:2022-02-28T16:30:19.9645443+05:00:Thread#0:T:]
+2022-02-28T16:30:19.9665875+05:00:2022-02-28T16:30:19.9662706+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiReturnFormatValidationError() (0.7s)
+2022-02-28T16:30:19.9678713+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:19.9679019+05:00:Thread#:Scheduler: testitem #9 from normal test queue 
+2022-02-28T16:30:19.9679070+05:00:Thread#0:Scheduler: considering testitem #9 for thread 0
+2022-02-28T16:30:19.9679873+05:00:Thread#0:TestItem#9:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:19.9679927+05:00:Thread#0:TestItem#9:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:19.9679942+05:00:Thread#0:TestItem#9:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:19.9679981+05:00:Thread#0:Scheduler: using testitem #9 for thread 0
+2022-02-28T16:30:19.9680412+05:00:Thread#0:Scheduler: Test #9 is scheduled for thread
+2022-02-28T16:30:19.9680866+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:19.9703081+05:00:Thread#0: Test #8/0 is finished on thread #0 as Succeeded within 1.3441192 seconds
+2022-02-28T16:30:19.9709863+05:00:Thread#0: Test #9/0 is started on thread #0
+2022-02-28T16:30:19.9727600+05:00:2022-02-28T16:30:19.9723167+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:19.9736699+05:00:2022-02-28T16:30:19.9733312+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:19.9741619+05:00:2022-02-28T16:30:19.9738439+05:00:Thread#0:B:When A Request with a Below Minimum Required Limit Bank Accountis posted to API
+2022-02-28T16:30:19.9761902+05:00:2022-02-28T16:30:19.9758287+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:19.9766101+05:00:2022-02-28T16:30:19.9763332+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:19 PM
+2022-02-28T16:30:19.9769914+05:00:2022-02-28T16:30:19.9767254+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:19.9774089+05:00:2022-02-28T16:30:19.9771169+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:20.6765721+05:00:2022-02-28T16:30:20.6760168+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithABelowMinimumRequiredLimitBankAccountisPostedToAPI() (0.7s)
+2022-02-28T16:30:20.6774949+05:00:2022-02-28T16:30:20.6770919+05:00:Thread#0:B:Then An Api return Short Length Format Validation Error
+2022-02-28T16:30:20.6806966+05:00:2022-02-28T16:30:20.6802905+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:20.6811252+05:00:2022-02-28T16:30:20.6808633+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:20 PM
+2022-02-28T16:30:20.6814833+05:00:2022-02-28T16:30:20.6812292+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:20.6818729+05:00:2022-02-28T16:30:20.6815996+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:21.3975522+05:00:2022-02-28T16:30:21.3967846+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:21.3981603+05:00:2022-02-28T16:30:21.3977722+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:21 PM
+2022-02-28T16:30:21.3985534+05:00:2022-02-28T16:30:21.3982799+05:00:Thread#0:T:RESPONSE CODE:	 BadRequest
+2022-02-28T16:30:21.3989583+05:00:2022-02-28T16:30:21.3986738+05:00:Thread#0:T:RESPONSE BODY:	 [
+2022-02-28T16:30:21.3993721+05:00:2022-02-28T16:30:21.3990907+05:00:Thread#0:T:  {
+2022-02-28T16:30:21.3997601+05:00:2022-02-28T16:30:21.3994838+05:00:Thread#0:T:    "type": "BusinessError",
+2022-02-28T16:30:21.4001823+05:00:2022-02-28T16:30:21.3999022+05:00:Thread#0:T:    "code": "400.006",
+2022-02-28T16:30:21.4005822+05:00:2022-02-28T16:30:21.4003056+05:00:Thread#0:T:    "message": "A string value with minimum length 7 is required.",
+2022-02-28T16:30:21.4009768+05:00:2022-02-28T16:30:21.4006954+05:00:Thread#0:T:    "customerFacingMessage": "A string value with minimum length 7 is required.",
+2022-02-28T16:30:21.4013859+05:00:2022-02-28T16:30:21.4010882+05:00:Thread#0:T:    "actionCode": "AskConsumerToReEnterData",
+2022-02-28T16:30:21.4019147+05:00:2022-02-28T16:30:21.4015151+05:00:Thread#0:T:    "fieldReference": "bankAccount"
+2022-02-28T16:30:21.4024789+05:00:2022-02-28T16:30:21.4021054+05:00:Thread#0:T:  }
+2022-02-28T16:30:21.4028911+05:00:2022-02-28T16:30:21.4026076+05:00:Thread#0:T:]
+2022-02-28T16:30:21.4042870+05:00:2022-02-28T16:30:21.4038897+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiReturnShortLengthFormatValidationError() (0.7s)
+2022-02-28T16:30:21.4056632+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:21.4056946+05:00:Thread#:Scheduler: testitem #10 from normal test queue 
+2022-02-28T16:30:21.4057005+05:00:Thread#0:Scheduler: considering testitem #10 for thread 0
+2022-02-28T16:30:21.4057534+05:00:Thread#0:TestItem#10:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:21.4057565+05:00:Thread#0:TestItem#10:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:21.4057592+05:00:Thread#0:TestItem#10:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:21.4057643+05:00:Thread#0:Scheduler: using testitem #10 for thread 0
+2022-02-28T16:30:21.4058097+05:00:Thread#0:Scheduler: Test #10 is scheduled for thread
+2022-02-28T16:30:21.4058474+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:21.4083167+05:00:Thread#0: Test #9/0 is finished on thread #0 as Succeeded within 1.4372639 seconds
+2022-02-28T16:30:21.4090939+05:00:Thread#0: Test #10/0 is started on thread #0
+2022-02-28T16:30:21.4115920+05:00:2022-02-28T16:30:21.4111474+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:21.4126422+05:00:2022-02-28T16:30:21.4123151+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:21.4133591+05:00:2022-02-28T16:30:21.4130438+05:00:Thread#0:B:When A Request with a Different Countries IBAN  Posted to API
+2022-02-28T16:30:21.4156933+05:00:2022-02-28T16:30:21.4152942+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:21.4161544+05:00:2022-02-28T16:30:21.4158528+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:21 PM
+2022-02-28T16:30:21.4165738+05:00:2022-02-28T16:30:21.4162809+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:21.4169889+05:00:2022-02-28T16:30:21.4167068+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:22.0934806+05:00:2022-02-28T16:30:22.0929727+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithADifferentCountriesIBANPostedToAPI() (0.7s)
+2022-02-28T16:30:22.0944348+05:00:2022-02-28T16:30:22.0939912+05:00:Thread#0:B:Then An Api Validation Return IBAN Format Response
+2022-02-28T16:30:22.0979642+05:00:2022-02-28T16:30:22.0974480+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:22.0986758+05:00:2022-02-28T16:30:22.0982519+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:22 PM
+2022-02-28T16:30:22.0991184+05:00:2022-02-28T16:30:22.0988100+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:22.0996706+05:00:2022-02-28T16:30:22.0993205+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:22.7827824+05:00:2022-02-28T16:30:22.7822311+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:22.7833993+05:00:2022-02-28T16:30:22.7830112+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:22 PM
+2022-02-28T16:30:22.7839079+05:00:2022-02-28T16:30:22.7835872+05:00:Thread#0:T:RESPONSE CODE:	 OK
+2022-02-28T16:30:22.7842931+05:00:2022-02-28T16:30:22.7840560+05:00:Thread#0:T:RESPONSE BODY:	 {
+2022-02-28T16:30:22.7847036+05:00:2022-02-28T16:30:22.7844303+05:00:Thread#0:T:  "isValid": true
+2022-02-28T16:30:22.7852304+05:00:2022-02-28T16:30:22.7848605+05:00:Thread#0:T:}
+2022-02-28T16:30:22.7868562+05:00:2022-02-28T16:30:22.7864757+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiValidationReturnIBANFormatResponse() (0.7s)
+2022-02-28T16:30:22.7879297+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:22.7879531+05:00:Thread#:Scheduler: testitem #11 from normal test queue 
+2022-02-28T16:30:22.7879614+05:00:Thread#0:Scheduler: considering testitem #11 for thread 0
+2022-02-28T16:30:22.7880425+05:00:Thread#0:TestItem#11:testItemMatchesCurrentTestThread:UnSpecific
+2022-02-28T16:30:22.7880512+05:00:Thread#0:TestItem#11:runsOnOneOtherThreadSpecific:False
+2022-02-28T16:30:22.7880527+05:00:Thread#0:TestItem#11:runsOnOneOtherThreadUnspecific:False
+2022-02-28T16:30:22.7880551+05:00:Thread#0:Scheduler: using testitem #11 for thread 0
+2022-02-28T16:30:22.7880939+05:00:Thread#0:Scheduler: Test #11 is scheduled for thread
+2022-02-28T16:30:22.7881384+05:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-02-28T16:30:22.7897186+05:00:Thread#0: Test #10/0 is finished on thread #0 as Succeeded within 1.3805633 seconds
+2022-02-28T16:30:22.7902278+05:00:Thread#0: Test #11/0 is started on thread #0
+2022-02-28T16:30:22.7921929+05:00:2022-02-28T16:30:22.7917182+05:00:Thread#0:B:Given Set Bank Account 'API' Endpoint
+2022-02-28T16:30:22.7930648+05:00:2022-02-28T16:30:22.7927294+05:00:Thread#0:T:done: Bank_Account_Step_Definition.SetBankAccountAPIEndpoint("API") (0.0s)
+2022-02-28T16:30:22.7935647+05:00:2022-02-28T16:30:22.7932615+05:00:Thread#0:B:When A Request with an "DK5000400440116243" Cases Posted to API
+2022-02-28T16:30:22.7956750+05:00:2022-02-28T16:30:22.7952511+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:22.7960977+05:00:2022-02-28T16:30:22.7958185+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:22 PM
+2022-02-28T16:30:22.7965449+05:00:2022-02-28T16:30:22.7962607+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:22.7969819+05:00:2022-02-28T16:30:22.7966880+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:23.4764374+05:00:2022-02-28T16:30:23.4759683+05:00:Thread#0:T:done: Bank_Account_Step_Definition.WhenARequestWithAnIBANCasesPostedToAPI("DK5000400440116243") (0.7s)
+2022-02-28T16:30:23.4771043+05:00:2022-02-28T16:30:23.4767652+05:00:Thread#0:B:Then An Api return "IBAN" Validation Error
+2022-02-28T16:30:23.4812537+05:00:2022-02-28T16:30:23.4808304+05:00:Thread#0:T:**********API REQUEST DETAILS**********
+2022-02-28T16:30:23.4817385+05:00:2022-02-28T16:30:23.4814374+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:23 PM
+2022-02-28T16:30:23.4821257+05:00:2022-02-28T16:30:23.4818562+05:00:Thread#0:T:REQUEST METHOD:	Post
+2022-02-28T16:30:23.4825389+05:00:2022-02-28T16:30:23.4822517+05:00:Thread#0:T:REQUEST URL:	https://api-test.afterpay.dev/api/v3/validate/bank-account
+2022-02-28T16:30:24.1640237+05:00:2022-02-28T16:30:24.1634232+05:00:Thread#0:T:**********API RESPONSE DETAILS**********
+2022-02-28T16:30:24.1646586+05:00:2022-02-28T16:30:24.1642569+05:00:Thread#0:T:Date & Time:	28-Feb-22 4:30:24 PM
+2022-02-28T16:30:24.1652911+05:00:2022-02-28T16:30:24.1648942+05:00:Thread#0:T:RESPONSE CODE:	 BadRequest
+2022-02-28T16:30:24.1657951+05:00:2022-02-28T16:30:24.1654733+05:00:Thread#0:T:RESPONSE BODY:	 [
+2022-02-28T16:30:24.1662942+05:00:2022-02-28T16:30:24.1659182+05:00:Thread#0:T:  {
+2022-02-28T16:30:24.1667671+05:00:2022-02-28T16:30:24.1664445+05:00:Thread#0:T:    "type": "BusinessError",
+2022-02-28T16:30:24.1671986+05:00:2022-02-28T16:30:24.1669148+05:00:Thread#0:T:    "code": "400.006",
+2022-02-28T16:30:24.1676143+05:00:2022-02-28T16:30:24.1673328+05:00:Thread#0:T:    "message": "A string value with minimum length 7 is required.",
+2022-02-28T16:30:24.1680437+05:00:2022-02-28T16:30:24.1677319+05:00:Thread#0:T:    "customerFacingMessage": "A string value with minimum length 7 is required.",
+2022-02-28T16:30:24.1686648+05:00:2022-02-28T16:30:24.1682010+05:00:Thread#0:T:    "actionCode": "AskConsumerToReEnterData",
+2022-02-28T16:30:24.1691490+05:00:2022-02-28T16:30:24.1688526+05:00:Thread#0:T:    "fieldReference": "bankAccount"
+2022-02-28T16:30:24.1695513+05:00:2022-02-28T16:30:24.1692656+05:00:Thread#0:T:  }
+2022-02-28T16:30:24.1700366+05:00:2022-02-28T16:30:24.1696718+05:00:Thread#0:T:]
+2022-02-28T16:30:24.1713835+05:00:2022-02-28T16:30:24.1709400+05:00:Thread#0:T:done: Bank_Account_Step_Definition.ThenAnApiValidationReturnsIBANFormatResponse("IBAN") (0.7s)
+2022-02-28T16:30:24.1726961+05:00:Thread#0:Scheduler: get next test for thread 0
+2022-02-28T16:30:24.1727286+05:00:Thread#:Scheduler: at the end of normal test queue
+2022-02-28T16:30:24.1727340+05:00:Thread#0:Scheduler: enumerator for thread is at end
+2022-02-28T16:30:24.1727372+05:00:Thread#0:Scheduler: No more tests for thread
+2022-02-28T16:30:24.1758780+05:00:Thread#0: Test #11/0 is finished on thread #0 as Succeeded within 1.3855818 seconds
+2022-02-28T16:30:24.1818723+05:00:2022-02-28T16:30:24.1814820+05:00:Got Deinitialize Signal
+2022-02-28T16:30:24.1843905+05:00:RPC Client disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-02-28T16:30:24.1850798+05:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-02-28T16:30:24.1866106+05:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-02-28T16:30:24.1880105+05:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en-US, PublicKeyToken=b03f5f7f11d50a3a
+2022-02-28T16:30:24.1880261+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' from .deps.json file
+2022-02-28T16:30:24.1880302+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' from .deps.json
+2022-02-28T16:30:24.1880355+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:24.1880418+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-02-28T16:30:24.1880791+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-02-28T16:30:24.1881090+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1'
+2022-02-28T16:30:24.1881154+05:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-02-28T16:30:24.1881754+05:00:Tfm: netcoreapp3.1
+2022-02-28T16:30:24.1881797+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-02-28T16:30:24.1881843+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-02-28T16:30:24.1882265+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-02-28T16:30:24.1882656+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-02-28T16:30:24.1954354+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.22'
+2022-02-28T16:30:24.1954505+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.22\System.Diagnostics.Process.resources.dll'
+2022-02-28T16:30:24.1958639+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.22\System.Diagnostics.Process.resources.exe'
+2022-02-28T16:30:24.1959022+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.22'
+2022-02-28T16:30:24.1960365+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.22'
+2022-02-28T16:30:24.1960405+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.22\System.Diagnostics.Process.resources.dll'
+2022-02-28T16:30:24.1960770+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.22\System.Diagnostics.Process.resources.exe'
+2022-02-28T16:30:24.1961152+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.22'
+2022-02-28T16:30:24.1962618+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.22'
+2022-02-28T16:30:24.1962658+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.22\System.Diagnostics.Process.resources.dll'
+2022-02-28T16:30:24.1966729+05:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.22\System.Diagnostics.Process.resources.exe'
+2022-02-28T16:30:24.1967083+05:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.22'
+2022-02-28T16:30:24.1974429+05:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-02-28T16:30:24.2040448+05:00:Thread#-1:Scheduler: get next test for thread -1
+2022-02-28T16:30:24.2040770+05:00:Thread#:Scheduler: at the end of normal test queue
+2022-02-28T16:30:24.2040790+05:00:Thread#-1:Scheduler: enumerator for thread is at end
+2022-02-28T16:30:24.2054055+05:00;Thread#12;Info;test run finished
+2022-02-28T16:30:24.2057168+05:00;Thread#12;Info;publishing test results
+2022-02-28T16:30:24.2060294+05:00;Thread#12;Info;Not publishing results.
+2022-02-28T16:30:24.2062682+05:00;Thread#12;Info;test results published
+2022-02-28T16:30:24.2065396+05:00;Thread#12;Info;generating reports
+2022-02-28T16:30:24.2720296+05:00;Thread#12;Info;Starting external report generation process
+2022-02-28T16:30:25.9108509+05:00;Thread#12;Info;Successfully generated reports.
+2022-02-28T16:30:25.9129202+05:00;Thread#12;Info;Successfully generated reports
+2022-02-28T16:30:25.9205931+05:00:Total: 8
+2022-02-28T16:30:25.9225787+05:00:Succeeded: 8
+2022-02-28T16:30:25.9228841+05:00:Ignored: 0
+2022-02-28T16:30:25.9231258+05:00:Pending: 0
+2022-02-28T16:30:25.9231322+05:00:Skipped: 0
+2022-02-28T16:30:25.9233289+05:00:Failed: 0
+2022-02-28T16:30:25.9297205+05:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2022-02-28T16:30:25.9300620+05:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\ahmeeafa\source\repos\API_Test_Bank_Account_Validation\TestResults\Unnamed project__2022-02-28T163009.html'
+========== End of log file ==========
