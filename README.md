@@ -1,6 +1,11 @@
 # Bank Account Validation
 BankAccountValidation
 How to run the Test Cases:
+
+To Run Test Cases: Need to Sign up SpecFlow Account,  
+For your free SpecFlow account or sign-in with your already existing account here:
+https://account.specflow.org/clientactivation/welcome/Runner/4A913C04446945629C53335FFF95F745872E59095560CDAA391DCA0B2A6AF51BD877E8E6/NotActivatedYet
+
 - Download a Repository From below mentioned Git Repository Link
 - Open Solution file or a Project File from Project into Visual Studio. 
 - Open a solution file and Build a Project.
@@ -18,3 +23,5 @@ Below Mentioned IBANs are sample IBANs for different countries.
 - Switzerland:  	CH5604835012345678009
 - Sweden:	        SE8730000000010123456789
 - Sweden:	        SE4550000000058398257466
+
+
