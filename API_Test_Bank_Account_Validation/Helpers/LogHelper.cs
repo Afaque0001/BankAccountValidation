@@ -21,7 +21,7 @@ namespace API_Test_Bank_Account_Validation.Helpers
         {
             var tempMsg = DateTime.Now +"\n"+ " INFO: " + msg;
             sb.Append(tempMsg);
-            //File.AppendAllText("C:/Users/ahmeeafa/source/repos/Bank_Account_BDD/Logs/" + "log.txt", sb.ToString());
+            //File.AppendAllText("C:/Users/abc/source/repos/Bank_Account_BDD/Logs/" + "log.txt", sb.ToString());
             File.AppendAllText(path + "log.txt", sb.ToString());
             sb.Clear(); 
         }
